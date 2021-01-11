@@ -1,3 +1,3 @@
-Objective of simple harmonic oscillator experiment is to understand the concept of time period (natural frequency) in harmonic oscillations .
+To understand the behavior of single degree of freedom system vibrating with initial excitation (i.e, initial displacement and/or initial velocity and with or without damping).
 
-[simple-pendulum.jpg](images/simple-pendulum.JPG)
+[2.jpg](images/2.jpg)

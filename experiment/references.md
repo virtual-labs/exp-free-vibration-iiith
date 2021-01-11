@@ -1,1 +1,4 @@
-### Link your references in here
+- ¡°T. Irvine, Partial Fractions in Shock and Vibration Analysis¡±, Vibrationdata Publications, 1999.
+- ¡°Dynamics of structures¡± by Anil K chopra.
+- ¡°T. Irvine, The State Space Method for Solving Shock and Vibration Problems¡±, Vibrationdata Publications, 2005.
+- ¡°J.L. Meriam and L.G. Kraige, Engineering Mechanics¡±, John Wiley, 2002.

@@ -1,10 +1,16 @@
-Start the experiment with the default values of length, mass and intial displacement (in angle). Pause the experiment after few cycles and note the observation.
+Start the experiment with some default values of initial displacement (u=10mm) and initial velocity (v=5m/s). and zero damping. Pause the experiment after a few cycles.
 
 **Observation 1:**
 
-1.Find the time period of the pendulum by noting the time interval of any one complete cycle from the response graph.
+1. Observe the time period (T) and amplitude.
+2. Again start the experiment freshly, this time modifying the values of initial conditions.
+3. Observe that the time period is independent of initial conditions.
 
-2.You may note that this time period value is same for any complete cycle.
+**Observation 2:**
+
+1. Effect of structures properties on time period
+2. Modify the value of mass and observe the change in time period.
+3. Run the experiment for different values of mass and note the time period every time mass is changed
+4. Draw the graph between mass and time period.
 
 [Read More](1.manual.pdf)
-

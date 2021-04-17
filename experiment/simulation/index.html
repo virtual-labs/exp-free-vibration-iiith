@@ -1,13 +1,96 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+		<link rel="stylesheet" href="./css/main.css">		
+	</head>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
-</body>
+	<body class="page">
+		<div class="columns is-mobile is-centered">
+			<div class="column has-text-centered">
+				<h1 class="title">Free vibration of S.D.O.F system</h1>
+			</div>
+		</div>
+
+		<div class="columns is-centered">
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>INITAL VELOCITY: <span id="demo_velocity"></span></p>
+					<input type="range" min="500" max="2000" value="1000" class="slider" id="velocity">
+				</div>
+			</div>
+
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>INITIAL DISPLACEMENT: <span id="demo_vibration"></span></p>
+					<input type="range" min="50" max="200" value="100" class="slider" id="vibration">
+				</div>
+			</div>
+
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>MASS: <span id="demo_mass"></span></p>
+					<input type="range" min="136000" max="500000" value="136000" class="slider" id="mass">
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-centered">
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>ETTA(IN PERCENTAGE): <span id="demo_etta"></span></p>
+					<input type="range" min="5" max="9" value="5" class="slider" id="etta">
+				</div>
+			</div>
+
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>STIFFNESS: <span id="demo_stiff"></span></p>
+					<input type="range" min="30000000" max="60000000" value="40000000" class="slider" id="stiff">
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-mobile is-centered">
+			<div class="column has-text-centered">
+				<button id="damping" class="action-button">Toggle Damping</button>
+				<button id="play" class="action-button">Play</button>
+				<button id="pause" class="action-button">Pause</button>
+				<button id="restart" class="action-button">Restart</button>
+			</div>
+		</div>
+
+		<div class="columns is-mobile is-centered">
+			<div class="column has-text-centered">
+				<div class="hero is-small">
+					<div class="hero-body">
+						<canvas class="main" id="main"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="graph">
+			<div class="graphs">
+				<div class="columns is-centered">
+					<div class="column has-text-centered">
+						<div id="disPlot" ></div>
+					</div>
+
+					<div class="column has-text-centered">
+						<div id ="lenPlot"></div>
+					</div>
+
+					<div class="column has-text-centered">
+						<div id ="timePlot"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://unpkg.com/mathjs@9.2.0/lib/browser/math.js"></script>
+		<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+		<script src="./js/main.js"></script>
+	</body>
 </html>

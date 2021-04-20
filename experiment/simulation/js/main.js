@@ -9,10 +9,9 @@ document.addEventListener('DOMContentLoaded', function(){
 	playButton.addEventListener('click', function() {  window.clearTimeout(tmHandle); tmHandle = setTimeout(draw, 1000 / fps); });
 	restartButton.addEventListener('click', function() {restart();});
 	dampButton.addEventListener('click', function() { isdamp = 1-isdamp ; restart();});
-
-	function restart() 
-	{ 
-		window.clearTimeout(tmHandle); 
+	
+	function init()
+	{
 		rod = [[startx, starty], [endx, starty], [endx, starty + height], [startx, starty + height]];
 
 		ground = [
@@ -22,6 +21,12 @@ document.addEventListener('DOMContentLoaded', function(){
 			[endx + margin, starty + height + 40],
 		];
 		curr_t = 0;
+	}
+	
+	function restart() 
+	{ 
+		window.clearTimeout(tmHandle); 
+		init();
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
 	}
 
@@ -113,7 +118,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	let radius = mass / 10000;
 
 	// Derived Parameters
-	let curr_t = 0;
+	let rod, ground, curr_t;
+	init();
 	let omegan = math.sqrt(stiff / mass);
 	let omega0 = omegan * Math.sqrt(1 - (etta * etta));
 	let curr_displacement = vibe * (Math.cos(omegan * curr_t)) + (dev * (Math.sin(omegan * curr_t))) / omegan;
@@ -130,15 +136,6 @@ document.addEventListener('DOMContentLoaded', function(){
 	const lineWidth = 1.5;
 
 	const fps = 15;
-
-	let rod = [[startx, starty], [endx, starty], [endx, starty + height] , [startx, starty + height]];
-
-	let ground = [
-		[startx - margin, starty + height + 40],
-		[startx - margin, starty + height],
-		[endx + margin, starty + height],
-		[endx + margin, starty + height + 40],
-	];
 
 	function draw()
 	{

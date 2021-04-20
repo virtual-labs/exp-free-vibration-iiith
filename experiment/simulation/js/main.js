@@ -31,57 +31,27 @@ document.addEventListener('DOMContentLoaded', function(){
 		tmHandle = window.setTimeout(draw, 1000 / fps); 
 	}
 
-	const slider_mass = document.getElementById("mass");
-	const output_mass = document.getElementById("demo_mass");
-	output_mass.innerHTML = slider_mass.value; // Display the default slider value
+	const sliders = ["mass", "velocity", "vibration", "stiff", "etta"]; 
+	sliders.forEach(function(elem, ind){
+		const slider = document.getElementById(elem);
+		const output = document.getElementById("demo_" + elem);
+		output.innerHTML = slider.value; // Display the default slider value
 
-	slider_mass.oninput = function() {
-		output_mass.innerHTML = this.value;
-		mass = Number(document.getElementById("mass").value);
-		radius = mass / 10000;
-		restart();
-	};
+		slider.oninput = function() {
+			output.innerHTML = this.value;
+			params[elem] = Number(document.getElementById(elem).value);
+			if(ind === 0)
+			{
+				radius = params[elem] / 10000;
+			}
+			else if(ind === 4)
+			{
+				params[elem] /= 100;
+			}
 
-	const slider_vel = document.getElementById("velocity");
-	const output_vel = document.getElementById("demo_velocity");
-	output_vel.innerHTML = slider_vel.value; // Display the default slider value
-
-	slider_vel.oninput = function() {
-		output_vel.innerHTML = this.value;
-		dev = Number(document.getElementById("velocity").value);
-		restart();
-	};
-
-	const slider_vibe = document.getElementById("vibration");
-	const output_vibe = document.getElementById("demo_vibration");
-	output_vibe.innerHTML = slider_vibe.value; // Display the default slider value
-
-	slider_vibe.oninput = function() {
-		output_vibe.innerHTML = this.value;
-		vibe = Number(document.getElementById("vibration").value);
-		restart();
-	};
-
-	const slider_stiff = document.getElementById("stiff");
-	const output_stiff = document.getElementById("demo_stiff");
-	output_stiff.innerHTML = slider_stiff.value; // Display the default slider value
-
-	slider_stiff.oninput = function() {
-		output_stiff.innerHTML = this.value;
-		stiffness = Number(document.getElementById("stiff").value);
-		restart();
-	};
-
-	const slider_etta = document.getElementById("etta");
-	const output_etta = document.getElementById("demo_etta");
-	output_etta.innerHTML = slider_etta.value; // Display the default slider value
-
-	slider_etta.oninput = function() {
-		output_etta.innerHTML = this.value;
-		etta = Number(document.getElementById("etta").value);
-		etta /= 100;
-		restart();
-	};
+			restart();
+		};
+	});
 
 	function drawGround(ctx, ground)
 	{
@@ -109,22 +79,24 @@ document.addEventListener('DOMContentLoaded', function(){
 	const starty = 220;
 
 	// Input Parameters 
-	let vibe = 100;	// intial disaplcement
-	let dev = 1000; // intial velocity
-	let mass = 136000; 
-	let stiff = 30 * 1000000;
 	let isdamp = 0;
-	let etta = 0.05;
+	let params = {
+		"mass": 136000,
+		"velocity": 1000,
+		"vibration": 100,
+		"stiff": 4 * 10000000,
+		"etta": 0.05
+	};
 
-	let radius = mass / 10000;
+	let radius = params["mass"] / 10000;
 
 	// Derived Parameters
 	let rod, ground, curr_t;
 	init();
-	let omegan = math.sqrt(stiff / mass);
-	let omega0 = omegan * Math.sqrt(1 - (etta * etta));
-	let curr_displacement = vibe * (Math.cos(omegan * curr_t)) + (dev * (Math.sin(omegan * curr_t))) / omegan;
-	let damped_displacement = (Math.exp(-1 * etta * omega0 * curr_t)) * (vibe * (Math.cos(omega0 * curr_t)) + ((dev + etta * omegan * vibe) * Math.sin(omegan * curr_t)) / omegan);
+	let omegan = math.sqrt(params["stiff"] / params["mass"]);
+	let omega0 = omegan * Math.sqrt(1 - (params["etta"] * params["etta"]));
+	let curr_displacement = params["vibration"] * (Math.cos(omegan * curr_t)) + (params["velocity"] * (Math.sin(omegan * curr_t))) / omegan;
+	let damped_displacement = (Math.exp(-1 * params["etta"] * omega0 * curr_t)) * (params["vibration"] * (Math.cos(omega0 * curr_t)) + ((params["velocity"] + params["etta"] * omegan * params["vibration"]) * Math.sin(omegan * curr_t)) / omegan);
 
 	const canvas = document.getElementById("main");
 	canvas.width = 1200;
@@ -151,11 +123,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
 		if(isdamp)
 		{
-			curr_displacement = (Math.exp(-1 * etta * omega0 * curr_t)) * (vibe * (Math.cos(omega0 * curr_t)) + ((dev + etta * omegan * vibe) * Math.sin(omegan * curr_t)) / omega0);
+			curr_displacement = (Math.exp(-1 * params["etta"] * omega0 * curr_t)) * (params["vibration"] * (Math.cos(omega0 * curr_t)) + ((params["velocity"] + params["etta"] * omegan * params["vibration"]) * Math.sin(omegan * curr_t)) / omega0);
 		}
 		else
 		{
-			curr_displacement = vibe * (Math.cos(omegan * curr_t)) + (dev * (Math.sin(omegan * curr_t))) / omegan;
+			curr_displacement = params["vibration"] * (Math.cos(omegan * curr_t)) + (params["velocity"] * (Math.sin(omegan * curr_t))) / omegan;
 		}
 
 		const new_up_L = v[0][0] + curr_displacement;
@@ -201,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	{
 		try {
 			// compile the expression once
-			const coef = 2 * Math.PI / (math.sqrt(stiff));
+			const coef = 2 * Math.PI / (math.sqrt(params["stiff"]));
 			const expression = String(coef) + "*sqrt(x)";
 			const expr = math.compile(expression);
 
@@ -260,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	function drawLenGraph() {
 		try {
 			// compile the expression once
-			const coef = 2 * Math.PI * (math.sqrt(mass));
+			const coef = 2 * Math.PI * (math.sqrt(params["mass"]));
 			const expression = String(coef) + "/sqrt(x)";
 			const expr = math.compile(expression);
 
@@ -318,10 +290,10 @@ document.addEventListener('DOMContentLoaded', function(){
 	function drawTimeGraph() {
 		try {
 			// compile the expression once
-			let omegan = math.sqrt(stiff / mass);
-			let omega0 = omegan * Math.sqrt(1 - (etta * etta));
+			let omegan = math.sqrt(params["stiff"] / params["mass"]);
+			let omega0 = omegan * Math.sqrt(1 - (params["etta"] * params["etta"]));
 			
-			const expression = "exp(-1*x*" + String(etta*omega0) + ")" + "*(" + String(vibe) + "*cos(x*" + String(omega0) + ") + (" + String((dev + etta*omegan*vibe)/omega0) + "*sin(x*" + String(omega0) + ")))";
+			const expression = "exp(-1*x*" + String(params["etta"]*omega0) + ")" + "*(" + String(params["vibration"]) + "*cos(x*" + String(omega0) + ") + (" + String((params["velocity"] + params["etta"]*omegan*params["vibration"])/omega0) + "*sin(x*" + String(omega0) + ")))";
 			const expr = math.compile(expression);
 
 			// evaluate the expression repeatedly for different values of x

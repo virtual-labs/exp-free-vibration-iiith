@@ -1,3 +1,4 @@
+'use strict';
 document.addEventListener('DOMContentLoaded', function(){
 
 	const playButton = document.getElementById('play');
@@ -157,24 +158,24 @@ document.addEventListener('DOMContentLoaded', function(){
 			curr_displacement = vibe * (Math.cos(omegan * curr_t)) + (dev * (Math.sin(omegan * curr_t))) / omegan;
 		}
 
-		newv = v[0][0] + curr_displacement;
-		newv2 = v[1][0] + curr_displacement;
+		const new_up_L = v[0][0] + curr_displacement;
+		const new_up_R = v[1][0] + curr_displacement;
 
 		ctx.beginPath();
-		ctx.moveTo(newv, v[0][1]);
-		ctx.lineTo(newv2, v[1][1]);
+		ctx.moveTo(new_up_L, v[0][1]);
+		ctx.lineTo(new_up_R, v[1][1]);
 		ctx.lineTo(v[2][0], v[2][1]);
 		ctx.lineTo(v[3][0], v[3][1]);
-		ctx.lineTo(newv, v[0][1]);
+		ctx.lineTo(new_up_L, v[0][1]);
 		ctx.closePath();
 		ctx.fill();
 		ctx.stroke();
 
 		ctx.save();
 		ctx.beginPath();
-		ctx.moveTo(newv -radius, v[0][1]);
-		ctx.bezierCurveTo(newv-radius, v[0][1] - radius, newv2 + radius, v[0][1] - radius, newv2 + radius, v[1][1]);
-		ctx.bezierCurveTo(newv2 + radius, v[1][1] + radius, newv - radius, v[1][1] + radius, newv - radius, v[0][1]);
+		ctx.moveTo(new_up_L -radius, v[0][1]);
+		ctx.bezierCurveTo(new_up_L-radius, v[0][1] - radius, new_up_R + radius, v[0][1] - radius, new_up_R + radius, v[1][1]);
+		ctx.bezierCurveTo(new_up_R + radius, v[1][1] + radius, new_up_L - radius, v[1][1] + radius, new_up_L - radius, v[0][1]);
 		ctx.closePath();
 
 		ctx.fill();

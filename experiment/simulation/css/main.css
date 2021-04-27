@@ -16,6 +16,7 @@
 	border-radius: 16px;
 	padding: 10px 20px;
 	border: none;
+	font-size: 120%;
 }
 
 .action-button:hover {

@@ -23,9 +23,9 @@
 }
 
 .graph {
-	height : 50%;
-	width : 100%;
-	overflow-x: scroll;
+	margin-left: 7.5%;
 }
 
-
+.time-graph {
+	margin-left: 35%;
+}

@@ -6,18 +6,10 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 		<link rel="stylesheet" href="./css/main.css">		
 	</head>
-
-	<body class="page">
-		<div class="columns is-mobile is-centered">
-			<div class="column has-text-centered">
-				<h1 class="title">Free vibration of S.D.O.F system</h1>
-			</div>
-		</div>
-
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
 				<div class="slidecontainer">
-					<p>INITAL VELOCITY: <span id="demo_velocity"></span></p>
+					<p>INITIAL VELOCITY (m/s): <span id="demo_velocity"></span></p>
 					<input type="range" min="500" max="2000" value="1000" class="slider" id="velocity">
 				</div>
 			</div>
@@ -31,7 +23,7 @@
 
 			<div class="column has-text-centered">
 				<div class="slidecontainer">
-					<p>MASS: <span id="demo_mass"></span></p>
+					<p>MASS (kg): <span id="demo_mass"></span></p>
 					<input type="range" min="136000" max="500000" value="136000" class="slider" id="mass">
 				</div>
 			</div>
@@ -81,7 +73,10 @@
 				<div class="column has-text-centered">
 					<div id ="lenPlot"></div>
 				</div>
-
+			</div>
+		</div>
+		<div class="time-graph">
+			<div class="columns is-mobile is-centered">
 				<div class="column has-text-centered">
 					<div id ="timePlot"></div>
 				</div>

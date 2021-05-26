@@ -1,5 +1,6 @@
 Start the experiment with some default values of initial displacement, initial velocity, mass and stiffness of the system. Pause the experiment after a few cycles.
 
+
 **Observation 1:**
 
 - Observe the time period and amplitude.
@@ -34,3 +35,4 @@ damping(etta).
 
 NOTE: There are various features available for the graphs such as zoom, etc.
 The function/feature of each icon above the graphs becomes visible upon hovering over the concerned icon.
+

@@ -1,5 +1,6 @@
 'use strict';
 
+
 document.addEventListener('DOMContentLoaded', function(){
 
 	const playButton = document.getElementById('play');
@@ -11,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function(){
 	playButton.addEventListener('click', function() {  window.clearTimeout(tmHandle); tmHandle = setTimeout(draw, 1000 / fps); });
 	restartButton.addEventListener('click', function() {restart();});
 	dampButton.addEventListener('click', function() { isdamp = 1-isdamp ; restart();});
-	
 	function init()
 	{
 		rod = [[startx, starty], [endx, starty], [endx, starty + height], [startx, starty + height]];
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			restart();
 		};
 	});
+
 
 	function drawGround(ctx, ground)
 	{
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	let omega0 = omegan * Math.sqrt(1 - (params["etta"] * params["etta"]));
 	let curr_displacement = params["vibration"] * (Math.cos(omegan * curr_t)) + (params["velocity"] * (Math.sin(omegan * curr_t))) / omegan;
 	let damped_displacement = (Math.exp(-1 * params["etta"] * omega0 * curr_t)) * (params["vibration"] * (Math.cos(omega0 * curr_t)) + ((params["velocity"] + params["etta"] * omegan * params["vibration"]) * Math.sin(omegan * curr_t)) / omegan);
+
 
 	const canvas = document.getElementById("main");
 	canvas.width = 1200;

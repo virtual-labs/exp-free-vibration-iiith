@@ -1,1 +1,1 @@
-### Free Vibration of S.D.O.F System
+## Free Vibration of S.D.O.F System

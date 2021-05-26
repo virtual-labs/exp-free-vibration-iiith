@@ -5,11 +5,15 @@ There are two cases in free vibration <br>
 
 **Undamped free vibration :**
 The governing equation for undamped free vibration is <br>
-<img src="images/equ7.png">   <br>
+
+<img src="images/equ7.PNG">   <br>
+
 where,<br>
 m = mass ,u'' = acceleration, k = stiffness, u = displacement.<br>
 The solution to homogeneous equation is :<br>
-<img src="images/equ8.png"> <br>
+
+<img src="images/equ8.PNG"> <br>
+
 where,<br>
 u(0) = initial displacement ,u'(0) = initial velocity.<br>
 Here in this solution we can observe that the system will vibrate only if initial displacement and/or initial velocity is given.<br>

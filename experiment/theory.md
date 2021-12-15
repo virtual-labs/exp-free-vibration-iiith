@@ -18,4 +18,4 @@ where,<br>
 u(0) = initial displacement ,u'(0) = initial velocity.<br>
 Here in this solution we can observe that the system will vibrate only if initial displacement and/or initial velocity is given.<br>
 
-To read about the Theory of the experiment click [here](2.theory.pdf)
+To read about the Theory of the experiment click [here](docs/2.theory.pdf)

@@ -11,4 +11,4 @@ Start the experiment with some default values of initial displacement (u=10mm) a
 - Run the experiment for different values of mass and note the time period every time mass is changed
 - Draw the graph between mass and time period. 
 
-To read about the Theory of the experiment click [here](2.manual.pdf)
+To read about the Theory of the experiment click [here](docs/2.manual.pdf)

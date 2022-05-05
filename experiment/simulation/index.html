@@ -3,30 +3,30 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.min.css">
 		<link rel="stylesheet" href="./css/main.css">		
 	</head>
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
-				<div class="slidecontainer">
+				<div class="v-slider">
 					<p>INITIAL VELOCITY (m/s): <span id="demo_velocity"></span></p>
 
-					<input type="range" min="500" max="2000" value="1000" class="slider" id="velocity">
+					<input type="range" min="500" max="2000" value="1000" class="v-slider" id="velocity">
 				</div>
 			</div>
 
 			<div class="column has-text-centered">
-				<div class="slidecontainer">
+				<div class="v-slider">
 					<p>INITIAL DISPLACEMENT: <span id="demo_vibration"></span></p>
-					<input type="range" min="50" max="200" value="100" class="slider" id="vibration">
+					<input type="range" min="50" max="200" value="100" class="v-slider" id="vibration">
 				</div>
 			</div>
 
 			<div class="column has-text-centered">
-				<div class="slidecontainer">
+				<div class="v-slider">
 					<p>MASS (kg): <span id="demo_mass"></span></p>
 
-					<input type="range" min="136000" max="500000" value="136000" class="slider" id="mass">
+					<input type="range" min="136000" max="500000" value="136000" class="v-slider" id="mass">
 				</div>
 			</div>
 		</div>
@@ -35,31 +35,31 @@
 			<div class="column has-text-centered">
 				<div class="slidecontainer">
 					<p>ETTA(IN PERCENTAGE): <span id="demo_etta"></span></p>
-					<input type="range" min="5" max="9" value="5" class="slider" id="etta">
+					<input type="range" min="5" max="9" value="5" class="v-slider" id="etta">
 				</div>
 			</div>
 
 			<div class="column has-text-centered">
-				<div class="slidecontainer">
+				<div class="v-slider">
 					<p>STIFFNESS: <span id="demo_stiff"></span></p>
-					<input type="range" min="30000000" max="60000000" value="40000000" class="slider" id="stiff">
+					<input type="range" min="30000000" max="60000000" value="40000000" class="v-slider" id="stiff">
 				</div>
 			</div>
 		</div>
 
 		<div class="columns is-mobile is-centered">
 			<div class="column has-text-centered">
-				<button id="damping" class="action-button">Toggle Damping</button>
-				<button id="play" class="action-button">Play</button>
-				<button id="pause" class="action-button">Pause</button>
-				<button id="restart" class="action-button">Restart</button>
+				<button id="damping" class="v-button">Toggle Damping</button>
+				<button id="play" class="v-button">Play</button>
+				<button id="pause" class="v-button">Pause</button>
+				<button id="restart" class="v-button">Restart</button>
 			</div>
 		</div>
 
 		<div class="columns is-mobile is-centered">
 			<div class="column has-text-centered">
-				<div class="hero is-small">
-					<div class="hero-body">
+				<div class="v-canvas-container">
+					<div class="main has-text-centered">
 						<canvas class="main" id="main"></canvas>
 					</div>
 				</div>

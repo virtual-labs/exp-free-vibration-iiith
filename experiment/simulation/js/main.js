@@ -194,15 +194,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			const data = [trace1];
 			const layout = {
-				width: 450,
-				height: 450,
+				width: 250,
+				height: 250,
 
 				xaxis: {
 					title: {
 						text: 'Mass',
 						font: {
 							family: 'Courier New, monospace',
-							size: 18,
+							size: 10,
 							color: '#000000'
 						}
 					},
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function(){
 						text: 'Time Period',
 						font: {
 							family: 'Courier New, monospace',
-							size: 18,
+							size: 10,
 							color: '#000000'
 						}
 					}
@@ -252,14 +252,14 @@ document.addEventListener('DOMContentLoaded', function(){
 			};
 
 			const layout = {
-				width: 450,
-				height: 450,
+				width: 250,
+				height: 250,
 				xaxis: {
 					title: {
 						text: 'Stiffness',
 						font: {
 							family: 'Courier New, monospace',
-							size: 18,
+							size: 10,
 							color: '#000000'
 						}
 					},
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function(){
 						text: 'Time Period (s)',
 						font: {
 							family: 'Courier New, monospace',
-							size: 18,
+							size: 10,
 							color: '#000000'
 						}
 					}
@@ -312,14 +312,14 @@ document.addEventListener('DOMContentLoaded', function(){
 			};
 
 			const layout = {
-				width: 450,
-				height: 450,
+				width: 250,
+				height: 250,
 				xaxis: {
 					title: {
 						text: 'Time',
 						font: {
 							family: 'Courier New, monospace',
-							size: 18,
+							size: 10,
 							color: '#000000'
 						}
 					},
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function(){
 						text: 'Displacement',
 						font: {
 							family: 'Courier New, monospace',
-							size: 18,
+							size: 10,
 							color: '#000000'
 						}
 					}
@@ -349,3 +349,25 @@ document.addEventListener('DOMContentLoaded', function(){
 
 	drawTimeGraph();
 })
+function openGraph(evt, graphName) {
+  var i, graphcontent;
+  graphcontent = document.getElementsByClassName("graphcontent");
+  for (i = 0; i < graphcontent.length; i++) {
+    graphcontent[i].style.display = "none";
+  }
+  document.getElementById(graphName).style.display = "block";
+  evt.currentTarget.className += "active";
+}
+function openGraph(evt, graphName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("graphcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(graphName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
